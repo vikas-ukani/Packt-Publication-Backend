@@ -20,15 +20,15 @@ class BooksFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title,
+            'title' => $this->faker->sentence,
             'category_id' => Category::inRandomOrder()->first()->id,
-            'body' => $this->faker->text,
+            'body' => $this->faker->paragraph,
             'status' => $this->faker->randomElement([
                 'PUBLISHED', 'DRAFT'
             ]),
             'image' => 'https://source.unsplash.com/random',
             'price' => $this->faker->randomFloat(2, 10, 200),
-            'auther' => $this->faker->name(),
+            'auther' => $this->faker->name,
         ];
     }
 }

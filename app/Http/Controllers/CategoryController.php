@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoeryCollection;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
@@ -12,9 +14,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $cacheKey = 'categories:';
+        $ttl = now()->addMinutes(10); // Store Cache for an 10 Minutes
+        // $ttl = now()->addSeconds(2);
+
+        $data = Cache::remember($cacheKey, $ttl, function () {
+            return Category::all();;
+        });
+        return new CategoeryCollection($data);
     }
 
     /**

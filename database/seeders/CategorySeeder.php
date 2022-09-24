@@ -34,7 +34,61 @@ class CategorySeeder extends Seeder
                 "is_active" => true,
                 "created_at" => $now,
                 "updated_at" => $now
-            ]
+            ],
+            [
+                'id' => 3,
+                'title' =>  "Data",
+                'slug' =>  \Str::slug("Data"),
+                'description' => "Data",
+                "is_active" => true,
+                "created_at" => $now,
+                "updated_at" => $now
+            ],
+            [
+                'id' => 4,
+                'title' =>  "Clude",
+                'slug' =>  \Str::slug("Clude"),
+                'description' => "Clude",
+                "is_active" => true,
+                "created_at" => $now,
+                "updated_at" => $now
+            ],
+            [
+                'id' => 5,
+                'title' =>  "Network",
+                'slug' =>  \Str::slug("Network"),
+                'description' => "Network",
+                "is_active" => true,
+                "created_at" => $now,
+                "updated_at" => $now
+            ],
+            [
+                'id' => 6,
+                'title' =>  "Security",
+                'slug' =>  \Str::slug("Security"),
+                'description' => "Security",
+                "is_active" => true,
+                "created_at" => $now,
+                "updated_at" => $now
+            ],
+            [
+                'id' => 7,
+                'title' =>  "Game Development",
+                'slug' =>  \Str::slug("Game Development"),
+                'description' => "Game Development",
+                "is_active" => true,
+                "created_at" => $now,
+                "updated_at" => $now
+            ],
+            [
+                'id' => 8,
+                'title' =>  "Bussiness",
+                'slug' =>  \Str::slug("Bussiness"),
+                'description' => "Bussiness",
+                "is_active" => true,
+                "created_at" => $now,
+                "updated_at" => $now
+            ],
         ];
         DB::table('categories')->insert($categories);
     }

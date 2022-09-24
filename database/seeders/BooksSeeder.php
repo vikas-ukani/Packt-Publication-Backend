@@ -15,11 +15,6 @@ class BooksSeeder extends Seeder
      */
     public function run()
     {
-
-        Books::factory()->count(10)->create();
-        // ->each(function ($u) {
-            // $u->posts()->save(factory(App\Post::class)->make());
-        // });
-
+        Books::factory()->count(100)->create();
     }
 }
