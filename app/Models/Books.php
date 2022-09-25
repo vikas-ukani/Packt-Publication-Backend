@@ -20,7 +20,9 @@ class Books extends Model
     ];
 
 
-
+    /**
+     * Books belongs to one Category
+     */
     public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');

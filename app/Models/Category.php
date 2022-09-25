@@ -16,4 +16,12 @@ class Category extends Model
         'description',
         'is_active',
     ];
+
+    /**
+     * Category has Many Books
+     */
+    public function books()
+    {
+        return $this->hasMany(Books::class, 'category_id', 'id');
+    }
 }

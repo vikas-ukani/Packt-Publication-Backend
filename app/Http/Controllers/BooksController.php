@@ -35,69 +35,20 @@ class BooksController extends Controller
         return new BooksCollection($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Get Book by id
      */
-    public function store(Request $request)
+    public function get($id)
     {
-        //
-    }
+        // Create Cache Key
+        $cacheKey = "book:{$id}";
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Books  $books
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Books $books)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Books  $books
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Books $books)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Books  $books
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Books $books)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Books  $books
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Books $books)
-    {
-        //
+        $ttl = now()->addMinutes(60); // Store Cache for an Hour
+        // $ttl = now()->addSeconds(5);  // Store Cache for an 5 Second for testing.
+        $data = Cache::remember($cacheKey, $ttl, function () use ($id) {
+            return Books::with('category')->find($id);
+        });
+        return response()->json(['success' => true, 'data' => $data]);
     }
 }

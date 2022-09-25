@@ -20,6 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+/** Category Routes */
 Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/category/{slug}', [CategoryController::class, 'get']);
+
+/** Books Routes */
 Route::get('/books', [BooksController::class, 'index']);
+Route::get('/book/{id}', [BooksController::class, 'get']);

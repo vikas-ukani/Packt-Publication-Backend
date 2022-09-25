@@ -14,7 +14,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $cacheKey = 'categories:';
         $ttl = now()->addMinutes(10); // Store Cache for an 10 Minutes
@@ -27,68 +27,21 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Return Category with books by it's slug value
      */
-    public function create()
+    public function get($slug = null)
     {
-        //
-    }
+        $cacheKey = "category:{$slug}";
+        $ttl = now()->addMinutes(1); // Store Cache for an 1 Minutes
+        // $ttl = now()->addSeconds(5); // Store Cache for an 10 Minutes
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Category $category)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
-    {
-        //
+        /** Storing Data In Cache memory. */
+        $data = Cache::remember($cacheKey, $ttl, function () use ($slug) {
+            echo "Data";
+            var_dump(["data"]);
+            return Category::where('slug', $slug)->with('books')->first();;
+        });
+        if (!$data) return response()->json(['success' => false, 'data' => null], 400);
+        return response()->json(['success' => true, 'data' => $data], 200);
     }
 }
