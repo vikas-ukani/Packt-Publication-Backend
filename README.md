@@ -32,9 +32,19 @@ This project is responsible for handling eBooks API ans fetching from database a
 git clone https://github.com/vikas-ukani/Packt-Publication-Backend.git
 ```
 
-### copy .env file from .env.example
+### Copy .env file from .env.example
 ```
 cp .env.example .env
+```
+
+### Edit .env  and Set Database Configurations.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=packt-database
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
 ### Install Packages
