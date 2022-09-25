@@ -66,7 +66,7 @@ php artisan migrate
 
 OR with `--seed` flag to seed the database
 
-``
+```
 php artisan migrate --seed
 ```
 
@@ -74,6 +74,7 @@ php artisan migrate --seed
 ```
 php artisan db:seed
 ```
+
 - It will create categories and random books factory data to testing more.
 
 ### Run the Project

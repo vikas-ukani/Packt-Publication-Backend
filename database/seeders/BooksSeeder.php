@@ -40,7 +40,7 @@ class BooksSeeder extends Seeder
                 "auther" => "Vikas Ukani",
                 "image" => "https://static.packt-cdn.com/products/9781782162827/cover/smaller",
                 "status" => 'Published',
-                "price" => "2,000",
+                "price" => 2000.00,
                 "created_at" => $now,
                 "updated_at" => $now
             ],
@@ -55,7 +55,7 @@ class BooksSeeder extends Seeder
                 "auther" => "Vikas Ukani",
                 "image" => "https://static.packt-cdn.com/products/9781803234502/cover/smaller",
                 "status" => 'Published',
-                "price" => "1,000",
+                "price" => 1000.00,
                 "created_at" => $now,
                 "updated_at" => $now
             ],
@@ -73,7 +73,7 @@ class BooksSeeder extends Seeder
                 "auther" => "Vikas Ukani",
                 "image" => "https://static.packt-cdn.com/products/9781801819312/cover/smaller",
                 "status" => 'Published',
-                "price" => "5,000",
+                "price" => 5000.00,
                 "created_at" => $now,
                 "updated_at" => $now
             ]
