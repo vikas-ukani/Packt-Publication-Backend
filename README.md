@@ -18,23 +18,23 @@ This project is responsible for handling eBooks API ans fetching from database a
 ## Installation Process
 
 ### Clone this repo via below command,
-`
+```
 git clone https://github.com/vikas-ukani/Packt-Publication-Backend.git
-`
+```
 
 ### copy .env file from .env.example
-`
+```
 cp .env.example .env
-`
+```
 
 ### Install Packages
-`
+```
 composer install 
-`
+```
 
 
 ### Generate app key
-`
-$ php artisan key:generate
-`
+```
+php artisan key:generate
+```
 
