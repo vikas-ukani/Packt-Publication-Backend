@@ -9,10 +9,20 @@ Packt-Publication is the online library and learning platform for professional d
 - Laravel - laravel/framework - "^9.19"
 - Redis - predis/predis - "^2.0"
 
+---
 
+## Features
 This project is responsible for handling eBooks API ans fetching from database and store it's cache data inside redis cache storage.
 
----
+- Database Migrations
+- Database Factory
+- Database Seeder
+- Categories APIs
+- Books APIs
+- Redis Cache Management
+- Pagination Implementation
+- Database RelationShip
+
 ---
 
 ## Installation Process
@@ -37,4 +47,23 @@ composer install
 ```
 php artisan key:generate
 ```
+
+
+### Migrate database
+```
+php artisan migrate
+```
+
+### Seed Data
+```
+php artisan db:seed
+```
+
+### Run the Project
+```
+php artisan serve
+```
+
+
+
 
