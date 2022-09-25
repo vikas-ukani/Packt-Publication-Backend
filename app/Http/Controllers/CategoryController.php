@@ -37,8 +37,6 @@ class CategoryController extends Controller
 
         /** Storing Data In Cache memory. */
         $data = Cache::remember($cacheKey, $ttl, function () use ($slug) {
-            echo "Data";
-            var_dump(["data"]);
             return Category::where('slug', $slug)->with('books')->first();;
         });
         if (!$data) return response()->json(['success' => false, 'data' => null], 400);
