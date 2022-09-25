@@ -35,6 +35,6 @@ composer install
 
 ### Generate app key
 `
-php artisan key:generate
+> php artisan key:generate
 `
 
