@@ -64,16 +64,20 @@ php artisan key:generate
 php artisan migrate
 ```
 
+OR with `--seed` flag to seed the database
+
+``
+php artisan migrate --seed
+```
+
 ### Seed Data
 ```
 php artisan db:seed
 ```
+- It will create categories and random books factory data to testing more.
 
 ### Run the Project
 ```
 php artisan serve
 ```
-
-
-
 
